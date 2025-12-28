@@ -282,5 +282,6 @@ def logout():
 # RUN APP
 # =========================
 if __name__ == "__main__":
-    app.run(debug=True, port=5001)
+    app.run(port=5001)
+
 
