@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GNPC | Digital Operations Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+
+
+<body class="bg">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+    <div class="logo">GNPC</div>
+    <div class="nav-links">
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="#about">About GNPC</a>
+        <!-- <a href="/">Home</a> -->
+        <!-- <a href="/login">Login</a>
+        <a href="#about">About GNPC</a>
+        <a href="#operations">Operations</a>
+        <a href="#sustainability">Sustainability</a> -->
+    </div>
+</nav>
+
+<!-- ================= HERO SECTION ================= -->
+<header class="hero">
+    <div class="hero-content">
+        <h1 style="text-align: center;">Ghana National Petroleum Corporation</h1>
+        <p class="hero-tagline" style="text-align: center;">
+            Powering Ghana’s Energy Future Through Innovation,
+            Sustainability, and Operational Excellence
+        </p>
+        <!-- <a href="/login" class="hero-btn">Access Operations Portal</a> -->
+    </div>
+</header>
+
+<!-- ================= ABOUT SECTION ================= -->
+<section id="about" class="info-section">
+    <h2>About GNPC</h2>
+    <p>
+        The Ghana National Petroleum Corporation (GNPC) is the national oil
+        company mandated to explore, develop, and manage Ghana’s petroleum
+        resources for the benefit of the nation.
+    </p>
+</section>
+
+<!-- ================= OPERATIONS SECTION ================= -->
+<section id="operations" class="info-section alt">
+    <h2>Our Operations</h2>
+    <p>
+        GNPC operates across the petroleum value chain, including upstream
+        exploration, midstream processing, and downstream support activities,
+        ensuring operational efficiency and national energy security.
+    </p>
+</section>
+
+<!-- ================= SUSTAINABILITY SECTION ================= -->
+<section id="sustainability" class="info-section">
+    <h2>Sustainability & ESG</h2>
+    <p>
+        Sustainability is central to GNPC’s mandate. The corporation integrates
+        environmental protection, health and safety, and community development
+        into all petroleum operations.
+    </p>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <p>© 2025 Ghana National Petroleum Corporation</p>
+    <p>Digital Operations Portal</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GNPC | Secure Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+
+<body class="bg">
+
+<main class="auth-container">
+
+    <!-- ================= BRANDING ================= -->
+    <header class="auth-header">
+        <h1>Ghana National Petroleum Corporation</h1>
+        <p class="auth-tagline">Secure Digital Operations Access Portal</p>
+    </header>
+
+    <!-- ================= LOGIN CARD ================= -->
+    <section class="card auth-card">
+        <h2>System Login</h2>
+        <p class="auth-subtitle">Authorized Personnel Only</p>
+
+        <form method="POST" novalidate>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input 
+                    id="username"
+                    name="username"
+                    type="text"
+                    placeholder="Enter your username"
+                    required
+                    autocomplete="username"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input 
+                    id="password"
+                    name="password"
+                    type="password"
+                    placeholder="Enter your password"
+                    required
+                    autocomplete="current-password"
+                >
+            </div>
+
+            <button type="submit" class="primary-btn">Log in</button>
+        </form>
+
+        <!-- ================= SECURITY NOTICE ================= -->
+        <div class="security-note">
+            <p>
+                ⚠ This system is restricted to authorized GNPC personnel only.
+                Unauthorized access is prohibited and may attract disciplinary or legal action.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================= DEMO ACCOUNTS ================= -->
+    <section class="demo-credentials">
+        <h3>Demo Accounts </h3>
+        <ul>
+            <li><strong>Engineer:</strong> engineer / 123</li>
+            <li><strong>Manager:</strong> manager / 123</li>
+            <li><strong>Administrator:</strong> admin / 123</li>
+        </ul>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="auth-footer">
+        <p>© 2025 Ghana National Petroleum Corporation</p>
+        <p>Digital Operations Portal</p>
+    </footer>
+
+</main>
+
+</body>
+</html>

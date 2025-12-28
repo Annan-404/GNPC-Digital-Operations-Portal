@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GNPC Projects</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg">
+
+     <!-- DASHBOARD NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">GNPC</div>
+        <div class="nav-links">
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <!-- <a href="{{ url_for('projects') }}" class="active">Projects</a>
+            <a href="{{ url_for('sustainability') }}">Sustainability</a>
+            <a href="{{ url_for('hse') }}">HSE</a>
+            <a href="{{ url_for('logout') }}">Logout</a> -->
+        </div>
+    </nav>
+
+
+<!-- <nav class="navbar">
+    <div class="logo">GNPC</div>
+</nav> -->
+
+<div class="dashboard">
+    <h1>GNPC Major Projects</h1>
+
+    <ul>
+        <li>Jubilee Oil Field – Offshore</li>
+        <li>TEN Oil & Gas Project</li>
+        <li>Atuabo Gas Processing Plant</li>
+        <li>Exploration Blocks – Voltaian Basin</li>
+    </ul>
+</div>
+
+</body>
+</html>

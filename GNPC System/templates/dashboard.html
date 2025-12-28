@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GNPC Advanced Operations Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ 
+</head>
+
+<body class="bg">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+    <div class="logo">GNPC</div>
+    <div class="nav-links">
+        <!-- <a href="/dashboard">Dashboard</a> -->
+        <a href="/input">Operations</a>
+        <!-- <a href="{{ url_for('dashboard') }}">Dashboard</a> -->
+        <a href="{{ url_for('projects') }}">Projects</a>
+        <a href="{{ url_for('sustainability') }}">Sustainability</a>
+        <a href="{{ url_for('hse') }}">HSE</a>
+        <a href="{{ url_for('logout') }}">Logout</a>    
+        
+    </div>
+</nav>
+
+<!-- ================= MAIN DASHBOARD ================= -->
+<main class="dashboard">
+
+    <!-- USER INFO -->
+    <header class="dashboard-header">
+        <h1>GNPC Operational Intelligence Dashboard</h1>
+        <p>Welcome <strong>{{ user }}</strong> ({{ role }})</p>
+
+        {% if role == "Manager" or role == "Admin" %}
+            <p class="manager-note">Managerial View Enabled</p>
+        {% endif %}
+    </header>
+
+    <!-- ================= KPI SECTION ================= -->
+    <section class="kpis">
+        <div class="kpi green">
+            <h3>Total Operations</h3>
+            <p>{{ data|length }}</p>
+        </div>
+
+        <div class="kpi red">
+            <h3>Alert Conditions</h3>
+            <p>{{ data | selectattr("4", "equalto", "ALERT") | list | length }}</p>
+        </div>
+
+        <div class="kpi blue">
+            <h3>Environmental Records</h3>
+            <p>{{ data | selectattr("3", "equalto", "Environmental") | list | length }}</p>
+        </div>
+    </section>
+
+    <!-- ================= FILTERS ================= -->
+    <!-- <section class="filters"> -->
+    <section class="filters">
+        <button type="button" data-filter="All">All</button>
+        <button type="button" data-filter="Upstream">Upstream</button>
+        <button type="button" data-filter="Midstream">Midstream</button>
+        <button type="button" data-filter="Downstream">Downstream</button>
+        <button type="button" data-filter="Environmental">Environmental</button>
+    </section>
+
+    <!-- ================= OPERATIONS TABLE ================= -->
+    <section class="table-section">
+        <h2>Operational Records</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Value</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td class="{{ row[4]|lower }}">{{ row[4] }}</td>
+                    <td>{{ row[5] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ================= CHART ================= -->
+    <section class="charts">
+        <h2>Operational Distribution</h2>
+        <canvas id="opsChart" height="120"></canvas>
+    </section>
+
+    <!-- ================= PROJECTS & ASSETS ================= -->
+    <section class="projects">
+        <h2>GNPC Projects & Assets (Prototype)</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Offshore Jubilee Field</td>
+                    <td>Western Region</td>
+                    <td>Active</td>
+                </tr>
+                <tr>
+                    <td>Gas Processing Plant</td>
+                    <td>Atuabo</td>
+                    <td>Operational</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <p>© 2025 Ghana National Petroleum Corporation</p>
+</footer>
+
+<!-- <script src="{{ url_for('static', filename='js/script.js') }}"></script> -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+</body>
+</html>
